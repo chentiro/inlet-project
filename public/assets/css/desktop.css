@@ -1,0 +1,243 @@
+/* ================================================= */
+/* === 3. MEDIA QUERY (DESKTOP) OVERRIDES (FINAL CONSOLIDATED) === */
+/* ================================================= */
+
+@media (min-width: 768px) {
+  /* --- RESET MOBILE POSITIONING & TOGGLE --- */
+  .hamburger-toggle {
+    display: none;
+  }
+  .navbar-brand,
+  .hamburger-toggle {
+    position: initial;
+    transform: none;
+    top: initial;
+  }
+
+  /* --- NAVBAR CONTAINER & LINKS FLOW --- */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* FINAL PADDING DARI KONFLIK 3rem/4rem (menggunakan 3rem) */
+    padding: 0.5rem 3rem;
+    top: 0;
+  }
+  .navbar-links {
+    /* Reset semua styling mobile overlay/animasi */
+    position: initial;
+    max-height: initial;
+    overflow: visible;
+    opacity: 1;
+    visibility: visible;
+    transition: none;
+    width: auto;
+    height: auto;
+    background: none;
+    padding: 0;
+    margin-left: auto;
+  }
+  .navbar-links ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* --- LIST ITEM SPACING & COLOR --- */
+  .navbar-links li {
+    border-top: none;
+    /* FINAL PADDING HORIZONTAL: Menggunakan 0.5rem untuk kerapatan */
+    padding: 0 0.5rem;
+    background: none;
+    white-space: nowrap;
+  }
+  .navbar-links li a {
+    color: black; /* Teks default hitam */
+    padding: 0;
+  }
+  .navbar-brand a,
+  .hamburger-toggle {
+    color: black;
+  }
+  .navbar-links li a .material-icons-outlined,
+  .navbar-brand a .material-icons-outlined,
+  .hamburger-toggle .material-icons {
+    color: #2247ab; /* Warna ikon default */
+    transition: color 0.3s ease;
+  }
+
+  /* --- DROPDOWN CONTAINER & SUMMARY --- */
+  .dropdown {
+    position: relative;
+    display: block;
+    padding: 0 0.5rem; /* Padding dropdown sama dengan LI */
+  }
+  .dropdown summary {
+    color: black;
+    padding: 0;
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .dropdown summary span {
+    margin-right: 0.2rem;
+  }
+  .dropdown summary .material-icons-outlined {
+    color: #2247ab;
+  }
+
+  /* --- DROPDOWN MENU (SUBMENU) LOGIC --- */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background-color: #2c3e50;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    transform: translateY(10px);
+  }
+
+  /* Tampilkan saat Hover dan Klik */
+  .dropdown:hover .dropdown-menu,
+  .dropdown[open] .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* --- SUBMENU ITEM STYLING --- */
+  .dropdown-menu li {
+    text-align: left;
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .dropdown-menu li:last-child {
+    border-bottom: none;
+  }
+  .dropdown-menu li a {
+    color: white;
+    display: block;
+    white-space: nowrap;
+    padding: 0;
+  }
+
+  /* --- SCROLL COLOR OVERRIDE --- */
+  .navbar.scrolled .dropdown summary {
+    color: white;
+  }
+  .navbar.scrolled .dropdown summary .material-icons-outlined {
+    color: white;
+  }
+}
+
+@media (min-width: 768px) {
+  /* --- MEMASTIKAN VISIBILITAS LINKS (OVERRIDE MOBILE STATE) --- */
+  .navbar-links,
+  .navbar-links ul,
+  .navbar-links li {
+    /* Memaksa elemen agar terlihat, mengatasi sisa opacity/visibility mobile */
+    opacity: 1 !important;
+    visibility: visible !important;
+    /* Penting: Pastikan display tetap flex/block */
+    display: block;
+  }
+
+  /* --- MEMASTIKAN WARNA LINKS (UNSCROLLED) --- */
+  .navbar-links li a {
+    color: black !important;
+  }
+  .navbar-brand a {
+    color: black !important;
+  }
+
+  /* --- MEMASTIKAN DROPDOWN LINKS (Untuk Summary) --- */
+  .dropdown summary {
+    color: black !important;
+  }
+}
+
+@media (min-width: 768px) {
+  /* --- HAPUS ATURAN ABSOLUT MOBILE --- */
+  .hamburger-toggle {
+    display: none;
+  }
+  .navbar-brand,
+  .hamburger-toggle {
+    position: initial; /* Kunci: Kembalikan positioning ke flow normal */
+    transform: none;
+    top: initial;
+  }
+
+  /* --- MENU CONTAINER & VISIBILITY FIX --- */
+  .navbar-links {
+    /* Reset semua styling mobile overlay/animasi */
+    position: initial;
+    max-height: initial;
+    overflow: visible;
+    transition: none;
+    width: auto;
+    height: auto;
+    background: none;
+    padding: 0;
+    margin-left: auto;
+  }
+
+  .navbar-links ul {
+    /* KUNCI FIX: Memaksa tampil, mengatasi sisa opacity mobile */
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: none !important;
+
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* --- NAVBAR FLEX & PADDING KONSISTEN --- */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* FINAL PADDING KONSISTEN */
+    padding: 0.5rem 3rem;
+    top: 0;
+  }
+
+  /* --- FINAL COLOR UNTUK TAMPILAN UNSCROLLED --- */
+  .navbar-links li a,
+  .navbar-brand a,
+  .hamburger-toggle,
+  .dropdown summary {
+    color: black;
+  }
+
+  /* --- LIST ITEM SPACING & ICON COLOR --- */
+  .navbar-links li {
+    padding: 0 0.5rem;
+    border-top: none;
+    white-space: nowrap;
+  }
+  .navbar-links li a .material-icons-outlined,
+  .navbar-brand a .material-icons-outlined,
+  .hamburger-toggle .material-icons {
+    color: #2247ab; /* Warna ikon default 2*/
+    transition: color 0.3s ease;
+  }
+
+  /* --- DROPDOWN DESKTOP LOGIC (Hover) --- */
+  .dropdown {
+    padding: 0 0.5rem;
+  }
+  .dropdown summary {
+    justify-content: flex-start;
+  }
+  /* ... (Aturan Dropdown Menu desktop lainnya dari snippet harus dimasukkan di sini) ... */
+}

@@ -15,7 +15,7 @@
         
         <li>
             <details class="dropdown">
-                <summary>Tentang Kami <i class="material-icons-outlined">expand_more</i></summary>
+                <summary>About Us <i class="material-icons-outlined">expand_more</i></summary>
                 <ul class="dropdown-menu">
                     <li><a href="/profil"><i class="material-icons-outlined">apartment</i> Profil & Sejarah</a></li>
                     <li><a href="/tim"><i class="material-icons-outlined">group</i> Tim INLET</a></li>
@@ -38,7 +38,7 @@
         
         <li>
             <details class="dropdown">
-                <summary>Layanan <i class="material-icons-outlined">expand_more</i></summary>
+                <summary>Service <i class="material-icons-outlined">expand_more</i></summary>
                 <ul class="dropdown-menu">
                     <li><a href="/buku-tamu"><i class="material-icons-outlined">login</i> Buku Tamu</a></li>
                     <li><a href="/peminjaman"><i class="material-icons-outlined">event_available</i> Peminjaman</a></li>

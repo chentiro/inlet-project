@@ -21,7 +21,7 @@
 
 body {
   font-family: "Open-Sans", sans-serif;
-  padding-top: 6rem; /* Space untuk fixed navbar */
+  padding-top: 3.2rem; /* Space untuk fixed navbar */
   height: 200vh; /* Hanya untuk testing scroll */
 }
 
@@ -30,21 +30,27 @@ h2 {
   font-family: "Montserrat", sans-serif;
 }
 
-/* --- 2. NAVBAR DASAR (MOBILE-FIRST) --- */
-
 .navbar {
   position: fixed;
-  top: 5%;
+  top: 0;
   width: 100%;
   z-index: 1000;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   /* Efek Scroll (Penting untuk Animasi) */
-  background-color: transparent;
-  padding: 0rem 0rem;
+  background-color: white;
+
+  /* 💥 KOREKSI UTAMA: Tambah padding vertikal (misal: 1rem) */
+  padding: 1rem 3.5rem; /* Vertikal 1rem, Horizontal 3rem (sesuai padding mobile lain) */
+
   transition: all 0.3s ease;
+
+  /* ... box-shadow lainnya ... */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.5);
 }
 
 /* Positioning Absolut (Logo dan Toggle) */
@@ -118,21 +124,21 @@ h2 {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 .navbar-links li a {
-  color: white;
+  /* color: white; */
 }
 
 /* --- 4. SCROLL EFFECT LOGIC --- */
 .navbar.scrolled {
-  background-color: #2247ab;
+  /* background-color: #2247ab; */
   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
   padding: 0.2rem 0.2rem;
 }
 .navbar.scrolled a,
 .navbar.scrolled .hamburger-toggle {
-  color: white;
+  /* color: white; */
 }
 .navbar.scrolled .logo-img {
-  filter: invert(100%) brightness(200%);
+  /* filter: invert(100%) brightness(100%); */
 }
 
 /* --- 3. MOBILE MENU TOGGLE LOGIC (SLIDE ANIMATION) --- */
@@ -497,7 +503,7 @@ h2 {
 /* --- 4. SCROLL EFFECT LOGIC --- */
 
 .navbar.scrolled {
-  background-color: #2247ab;
+  /* background-color: #2247ab; */
   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
 
   /* KOREKSI: Pertahankan padding vertikal sama dengan unscrolled state */
@@ -603,7 +609,8 @@ h2 {
 
 .navbar.scrolled .material-icons-outlined,
 .navbar.scrolled .hamburger-toggle .material-icons {
-  color: white;
+  color: #2247ab;
+  /* color: white; */
 }
 
 /* --- 2. NAVBAR DASAR (MOBILE-FIRST & FIXED) --- */
@@ -683,7 +690,7 @@ h2 {
   list-style: none;
   margin: 0;
   padding: 0;
-  background-color: #1a3c8e;
+  /* background-color: #1a3c8e; */
   max-height: 0; /* Awalnya tertutup */
   overflow: hidden;
   transition: max-height 0.3s ease-out; /* Animasi slide untuk mobile */
@@ -773,10 +780,10 @@ h2 {
 
   /* Warna teks dan ikon summary saat Navbar di-scroll (desktop) */
   .navbar.scrolled .dropdown summary {
-    color: white;
+    /* color: white; */
   }
   .navbar.scrolled .dropdown summary .material-icons-outlined {
-    color: white;
+    /* color: white; */
   }
 }
 
@@ -787,7 +794,7 @@ h2 {
   cursor: pointer;
   text-align: center;
   padding: 0.75rem 0; /* Padding vertikal mobile */
-  color: white;
+  /* color: white; */
 
   /* KUNCI: Gunakan flexbox untuk sejajarkan ikon dan teks */
   display: flex; /* WAJIB */
@@ -927,7 +934,7 @@ h2 {
   }
 
   .dropdown-menu li a {
-    color: white;
+    /* color: white; */
   }
 
   .navbar.scrolled .dropdown summary {
@@ -1069,4 +1076,346 @@ h2 {
   background-size: 8px 8px; /* Ukuran pola (disesuaikan dengan lebar scrollbar 8px) */
 
   border-radius: 4px;
+}
+
+/* Styling Scrollbar kustom Webkit (Chrome, Safari, Edge) */
+
+/* 2. Thumb (Bar yang digulir) */
+::-webkit-scrollbar-thumb {
+  /* Menggunakan radial-gradient untuk pola titik */
+  background-image: radial-gradient(
+    circle,
+    #2247ab 30%,
+    /* Warna INLET Blue untuk Titik */ transparent 30%
+      /* Area transparan di antara titik */
+  );
+
+  /* WAJIB: Atur ukuran background agar pola titik berulang */
+  background-size: 8px 8px; /* Jarak antara titik */
+
+  background-color: #2247ab; /* Warna dasar thumb (biru sangat terang) */
+
+  border-radius: 4px;
+}
+
+/* ============================================== */
+/* PERBAIKAN TATA LETAK LINK NAVIGASI             */
+/* ============================================== */
+
+@media (min-width: 768px) {
+  /* Target daftar utama (UL) */
+  .navbar-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    /* MENGGUNAKAN FLEXBOX PADA DAFTAR UTAMA */
+    display: flex;
+
+    /* Mengatur jarak (gap) antar item LI */
+    gap: 20px; /* Atur nilai gap sesuai keinginan, misalnya 20px */
+
+    /* Fallback jika gap tidak didukung atau jika Anda ingin margin eksplisit */
+    /* Jika menggunakan margin, hapus gap: 20px di atas */
+    /* margin-left: -10px; // Offset margin pertama */
+    /* margin-right: -10px; // Offset margin terakhir */
+  }
+
+  /* Target setiap item link (LI) */
+  .navbar-links ul li {
+    /* Pastikan LI tidak memiliki margin default yang berlebihan */
+    margin: 0;
+    padding: 0;
+  }
+
+  /* KOREKSI JIKA DROPDOWN MENGGANGGU */
+  /* Memastikan elemen di dalam LI memiliki jarak yang sama */
+  .navbar-links ul li a,
+  .navbar-links ul li details {
+    /* Pastikan elemen a atau details tidak memiliki padding atau margin horizontal yang mengganggu */
+    padding: 0;
+    margin: 0;
+
+    /* Jika Anda ingin jarak LI menjadi 20px, tidak perlu margin di sini */
+  }
+
+  /* ================================================= */
+  /* 1. GARIS BAWAH BIRU PADA HOVER (Link Utama)     */
+  /* ================================================= */
+
+  /* Atur posisi dan padding pada link utama dan ringkasan dropdown */
+  .navbar-links ul > li > a,
+  .navbar-links summary {
+    color: #1a237e; /* Warna teks default biru gelap */
+    padding: 0 10px 3px 10px; /* Tambahkan padding bawah untuk jarak garis */
+    position: relative;
+    transition: color 0.3s, border-bottom 0.3s;
+    cursor: pointer;
+    border-bottom: 3px solid transparent; /* Garis transparan default */
+    list-style: none; /* Hilangkan marker default details/list */
+    /* Hilangkan marker default di browser Webkit */
+    /* visibility: hidden; atau gunakan ::-webkit-details-marker */
+  }
+
+  .navbar-links summary::-webkit-details-marker {
+    display: none; /* Hilangkan ikon default di Chrome/Safari */
+  }
+
+  /* Efek Garis Bawah Biru Saat Hover */
+  .navbar-links ul > li > a:hover,
+  .navbar-links summary:hover {
+    color: #1a237e; /* Teks tetap biru */
+    border-bottom: 3px solid #1a237e; /* Garis bawah biru */
+    cursor: pointer;
+  }
+
+  /* ================================================= */
+  /* 2. DROPDOWN TAMPIL SAAT HOVER                   */
+  /* ================================================= */
+
+  /* Sembunyikan dropdown menu secara default */
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    min-width: 250px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1001; /* Pastikan di atas elemen lain */
+  }
+
+  /* Tampilkan dropdown menu ketika item <details> di-hover */
+  .dropdown:hover > .dropdown-menu {
+    display: block;
+  }
+
+  /* KOREKSI: Pastikan menu tetap terlihat saat di-klik (open) */
+  .dropdown[open] > .dropdown-menu {
+    display: block;
+  }
+
+  /* ================================================= */
+  /* 3. PENGECUALIAN SUB-LINK (Tanpa Garis Bawah)    */
+  /* ================================================= */
+
+  /* Styling dasar link di dalam dropdown menu */
+  .dropdown-menu a {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    white-space: nowrap;
+    color: #333;
+    border-bottom: none !important; /* WAJIB: Hapus semua border default */
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  /* Hover sub-link: Hanya ganti warna latar belakang/teks */
+  .dropdown-menu a:hover {
+    background-color: #f0f0f0; /* Latar belakang abu-abu muda saat hover */
+    color: #1a237e; /* Teks menjadi warna lab */
+    border-bottom: none !important; /* JAMINAN tidak ada border */
+  }
+
+  /* Pastikan ikon memiliki jarak yang cukup */
+  .dropdown-menu a i {
+    font-size: 1.2rem;
+    margin-right: 10px;
+    color: #1a237e;
+  }
+
+  /* ================================================= */
+  /* KOREKSI FINAL HOVER DROP-DOWN                   */
+  /* ================================================= */
+
+  /* 1. Atur Kontainer <details> */
+  /* Pastikan elemen ini menjadi referensi posisi */
+  .dropdown {
+    position: relative;
+    /* Jaminan ini akan bekerja sebagai target hover yang kuat */
+    display: inline-block;
+  }
+
+  /* 2. Sembunyikan & Posisikan Menu */
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    /* PENTING: Posisikan tepat di bawah Summary */
+    top: 100%;
+    left: 0;
+    /* Tambahkan margin-top kecil jika menu masih tumpang tindih dengan summary */
+    /* margin-top: 5px; */
+
+    list-style: none;
+    padding: 10px 0;
+    min-width: 250px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1001;
+  }
+
+  /* 3. KEKUATAN HOVER (Menggantikan Click) */
+  /* Gunakan !important untuk mengesampingkan aturan lain */
+  .dropdown:hover > .dropdown-menu {
+    display: block !important;
+  }
+
+  /* OPSIONAL: Override perilaku click bawaan (jika masih aktif) */
+  /* Pastikan menu tersembunyi jika hanya di-klik dan tidak di-hover */
+  .dropdown[open] > .dropdown-menu {
+    /* Set display: none HANYA jika Anda ingin menonaktifkan click sama sekali */
+    /* Namun, ini berisiko memecahkan fungsionalitas di mobile. 
+       Lebih baik biarkan Flexbox/hover yang dominan. */
+  }
+
+  /* style.css */
+
+  .dropdown-menu {
+    /* ... kode styling lainnya ... */
+
+    list-style: none;
+
+    /* 💥 KOREKSI UTAMA: Hapus padding kiri bawaan browser */
+    padding-left: 0 !important;
+
+    /* Gunakan padding kanan/kiri untuk kontrol jarak teks */
+    padding: 10px 0; /* Ganti dengan padding yang Anda inginkan (misal: 10px atas/bawah, 0 kiri/kanan) */
+
+    margin: 0;
+    min-width: 250px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1001;
+  }
+
+  /* Pastikan LI di dalamnya juga tidak memiliki margin/padding yang mengganggu */
+  .dropdown-menu li {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ================================================= */
+  /* KOREKSI FINAL INDENTASI SUB-LINK                */
+  /* ================================================= */
+
+  /* 1. Reset Total pada UL (.dropdown-menu) */
+  .dropdown-menu {
+    /* WAJIB: Hapus semua margin/padding bawaan, termasuk dari kiri */
+    padding: 0 !important;
+    margin: 0 !important;
+
+    list-style: none; /* Jaminan tidak ada marker */
+    /* ... style background, shadow, z-index lainnya tetap ... */
+  }
+
+  /* 2. Reset Total pada LI (Item List) */
+  .dropdown-menu li {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* 3. Atur Jarak Hanya pada Link (A) */
+  /* Ini adalah sumber padding internal link yang menjamin alignment */
+  .dropdown-menu a {
+    /* Padding internal yang menentukan jarak teks dari tepi kiri dan kanan menu */
+    padding: 8px 15px !important; /* Pastikan padding kiri/kanan diatur di sini */
+
+    display: flex; /* Pertahankan display: flex untuk ikon */
+    align-items: center;
+    color: #333;
+  }
+
+  /* Pastikan ikon memiliki jarak yang cukup di dalam link A */
+  .dropdown-menu a i {
+    font-size: 1.2rem;
+    margin-right: 10px;
+    color: #1a237e;
+  }
+
+  /* ================================================= */
+  /* KOREKSI LEBAR & PADDING DROPDOWN MENU           */
+  /* ================================================= */
+
+  .dropdown-menu {
+    /* Hapus min-width atau set width: max-content */
+    width: max-content; /* 💥 Ukuran akan menyesuaikan konten terpanjang */
+    min-width: 180px; /* Optional: Jaga minimal ukuran agar tidak terlalu kecil */
+
+    padding: 5px 0 !important; /* Padding sedikit di atas dan bawah menu */
+    margin: 0 !important;
+
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1001;
+
+    /* PENTING: Untuk teks center pada ul */
+    text-align: center;
+  }
+
+  /* Penyesuaian untuk Link di Dalam Menu */
+  .dropdown-menu a {
+    /* Hapus display: flex; untuk memungkinkan text-align: center bekerja */
+    display: block !important;
+
+    /* Padding di dalam link */
+    padding: 8px 10px !important; /* Padding minimal (8px atas/bawah, 10px kiri/kanan) */
+
+    /* Teks center di dalam link */
+    text-align: center !important;
+
+    /* Pastikan border dan margin reset */
+    margin: 0 !important;
+    border-bottom: none !important;
+  }
+
+  /* Penyesuaian Ikon */
+  .dropdown-menu a i {
+    /* Kembalikan ikon ke mode default agar sejajar dengan teks center */
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+
+  /* Jika ingin rata kiri (Hapus text-align: center dan ubah display) */
+  .dropdown-menu a {
+    display: flex !important;
+    align-items: center;
+    text-align: left !important; /* Jamin rata kiri */
+    padding: 8px 15px !important;
+  }
+  .dropdown-menu {
+    text-align: left;
+  }
+}
+
+/* --- 3. MOBILE MENU TOGGLE LOGIC (SLIDE ANIMATION) --- */
+
+.navbar-links.active {
+  /* ... positioning dan max-height lainnya tetap ... */
+
+  /* 💥 KOREKSI GLASSMORPHISM */
+  /* 1. Warna Latar Belakang Transparan (Warna lama #2c3e50 dengan opacity 0.85) */
+  background-color: rgba(44, 62, 80, 0.85);
+
+  /* 2. Efek Blur pada Konten di Belakang Menu */
+  backdrop-filter: blur(0.5px);
+  -webkit-backdrop-filter: blur(10px); /* Untuk kompatibilitas Safari */
+
+  /* Optional: Border tipis */
+  /* border: 1px solid rgba(255, 255, 255, 0.1); */
+
+  z-index: 999;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  overflow-y: auto;
+
+  /* ... kode lainnya tetap ... */
 }

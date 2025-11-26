@@ -1,13 +1,23 @@
-<section class="jumbotron">
-    <div class="overlay"></div>
-    <div class="jumbotron-content">
-        <h1>INLET: Inovasi Jaringan dan Kecerdasan Buatan</h1>
+<section id="hero-banner" class="hero-section text-center d-flex align-items-center">
+    <div class="container">
         
-        <a href="riset" class="cta-button">
-            <i class="fa-solid fa-microscope"></i> LIHAT PUBLIKASI
-        </a>
-    </div>
-</section>
+        <div class="hero-content">
+            <div class="mobile-hero-image-container">
+                <img src="<?php echo BASE_URL; ?>assets/images/gallery/15.jpg" alt="Hero Image Mobile" class="img-fluid">
+            </div>
 
-<section class="quick-stats">
+            
+            <div class="inlet-alignment-container">
+    <span class="inlet-acronym">InLet</span>
+    <span class="inlet-fullname">( Information & Learning Technology Lab )</span>
+</div>
+            <p class="hero-slogan">
+                Mendorong Kolaborasi dan Riset Mahasiswa dalam Teknologi Pembelajaran.
+            </p>
+
+            <a href="riset-publikasi.php" class="btn btn-primary btn-lg shadow-sm">
+                Our Project
+            </a>
+        </div>
+    </div>
 </section>
