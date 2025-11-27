@@ -1,0 +1,65 @@
+/* --- Styling About Us Section --- */
+.about-us-container {
+  padding: 2rem 3rem;
+  text-align: center;
+}
+
+.section-title {
+  font-family: "Montserrat", sans-serif;
+  color: #2247ab;
+  margin-bottom: 2rem;
+}
+
+.about-description {
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* --- Mobile-First Layout (Vertikal) --- */
+.focus-grid {
+  display: flex;
+  flex-direction: column; /* Stack vertikal di mobile */
+  gap: 30px; /* Jarak antar item */
+}
+
+.focus-item {
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.focus-icon-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.focus-icon-title h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+.focus-item .material-icons-outlined {
+  font-size: 1.5rem;
+  color: #2247ab;
+  margin-right: 0.5rem;
+}
+
+.about-cta {
+  margin-top: 3rem;
+}
+/* Anda perlu menambahkan styling untuk .btn-primary */
+
+/* --- Media Query: Desktop Layout (Grid 2x2) --- */
+@media (min-width: 992px) {
+  .focus-grid {
+    /* Beralih ke grid 2 kolom */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px; /* Batasi lebar agar grid tetap rapi */
+    margin: 0 auto;
+  }
+}

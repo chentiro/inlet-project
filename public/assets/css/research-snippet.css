@@ -1,0 +1,102 @@
+/* --- Styling Research Snippet Section --- */
+.research-snippet-container {
+  padding: 5rem 3rem;
+  text-align: center;
+}
+
+.research-snippet-container .section-title {
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 3rem;
+}
+
+/* --- Mobile-First Layout (Vertikal) --- */
+.research-grid {
+  display: flex;
+  flex-direction: column; /* Stack vertikal di mobile */
+  gap: 30px;
+  margin-bottom: 2.5rem;
+}
+
+.research-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+.research-card:hover {
+  transform: translateY(-5px); /* Efek visual saat hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  border-color: #2247ab; /* Border berubah warna */
+}
+
+.research-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.15rem;
+  color: #2c3e50;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
+.research-meta {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.research-meta .material-icons-outlined {
+  font-size: 1rem;
+}
+.research-year {
+  font-weight: 600;
+  color: #555;
+}
+
+.research-abstract {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+.btn-read-more {
+  color: #2247ab;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* --- Media Query: Desktop Layout (Grid 3 Kolom) --- */
+@media (min-width: 1200px) {
+  .research-grid {
+    /* Kunci: Beralih ke grid 3 kolom di layar lebar */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+}
+
+.research-cta {
+  /* KUNCI: Tambahkan margin-top agar berjarak dari grid di atas */
+  margin-top: 3rem;
+  padding-top: 1rem;
+
+  /* Pusatkan tombol jika belum terpusat */
+  text-align: center;
+}
+
+/* --- Styling Tombol CTA Utama (.btn-primary) --- */
+.btn-primary {
+  /* ... (styling tombol lainnya) ... */
+
+  /* Pastikan tombol itu sendiri tidak memiliki margin-top yang aneh */
+  margin-top: 0;
+}

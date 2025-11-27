@@ -21,8 +21,7 @@
 
 body {
   font-family: "Open-Sans", sans-serif;
-  padding-top: 3.2rem; /* Space untuk fixed navbar */
-  height: 200vh; /* Hanya untuk testing scroll */
+  padding-top: 2rem;
 }
 
 h1,
@@ -1418,4 +1417,43 @@ h2 {
   overflow-y: auto;
 
   /* ... kode lainnya tetap ... */
+}
+
+/* --- Styling Tombol CTA Utama (.btn-primary) - Lebih Ramping --- */
+
+.btn-primary {
+  /* Background Solid Biru INLET */
+  background-color: #2247ab;
+  color: white;
+
+  /* KOREKSI: Padding vertikal dikurangi (membuat tombol lebih pendek) */
+  padding: 0.6rem 1.5rem; /* Vertikal dari 0.8rem menjadi 0.6rem */
+
+  /* KOREKSI: Border lebih tipis */
+  border: 1px solid white; /* Border dari 2px menjadi 1px */
+
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+/* Efek Hover */
+.btn-primary:hover {
+  /* Background berubah menjadi Putih/Ghost Style */
+  background-color: white;
+  color: #2247ab;
+  border-color: #2247ab; /* Border juga berubah menjadi biru */
+}
+
+/* Styling Jumbotron Container (Tambahkan ini jika Anda punya container Jumbotron) */
+.jumbotron-container {
+  /* Pastikan tidak ada margin atau padding di atas */
+  margin-top: 0 !important;
+  padding-top: 0;
+  /* ... styling lainnya ... */
 }
