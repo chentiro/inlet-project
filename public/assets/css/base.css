@@ -1,0 +1,64 @@
+/* ================================================= */
+/* === 1. FONT, RESET, & GLOBAL STYLES (BASE) === */
+/* ================================================= */
+
+/* --- FONT FACE --- */
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/static/Montserrat-Black.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Open-Sans";
+  src: url("../fonts/Open_Sans/static/OpenSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* --- RESET & BOX-MODEL --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- GLOBAL BODY & TYPOGRAPHY --- */
+body {
+  font-family: "Open-Sans", sans-serif;
+  padding-top: 6rem; /* Space untuk fixed navbar saat unscrolled */
+  height: 200vh;
+}
+
+h1,
+h2 {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* --- TAMBAHAN: STYLING IKON GLOBAL --- */
+/* Ini harus dimasukkan agar ikon Material Icons memiliki warna default/transisi */
+.material-icons-outlined {
+  color: #2247ab;
+  transition: color 0.3s ease;
+}
+
+/* ================================================= */
+/* === 2. SCROLLBAR CUSTOM STYLING (GLOBAL/WEBKIT) === */
+/* ================================================= */
+
+/* 1. Track (Area di mana scrollbar bergerak) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* 3. Track (Area di belakang thumb) */
+::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+
+/* 2. Thumb (Bar yang digulir) - Warna Solid */
+::-webkit-scrollbar-thumb {
+  background-color: #2247ab; /* Warna Biru Primer INLET */
+  border-radius: 4px;
+}
+/* Kode untuk pattern stripe dan dot DIHILANGKAN */

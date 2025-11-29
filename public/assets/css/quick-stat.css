@@ -1,0 +1,74 @@
+/* --- Styling Quick Stats Section (Revisi Total) --- */
+.quick-stats-container {
+  padding: 1rem 3rem;
+  background-color: #f8f8f8; /* Background sangat terang */
+  text-align: center;
+}
+
+.stat-card {
+  background-color: white;
+  padding: 2rem 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+
+  /* Ganti Shadow dengan Border Halus (Modern Look) */
+  transition: border-color 0.3s ease;
+}
+
+/* Efek Hover: Menunjukkan interaksi */
+.stat-card:hover {
+  border-color: #2247ab; /* Border berubah warna menjadi Biru INLET */
+  box-shadow: 0 4px 10px rgba(34, 71, 171, 0.1); /* Tambah sedikit shadow saat hover */
+}
+
+.stat-number {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.2rem; /* Sedikit dikecilkan */
+  color: #2247ab; /* Warna Primer INLET */
+  margin: 0.5rem 0 0.2rem 0; /* Margin lebih ketat */
+}
+
+.stat-label {
+  font-family: "Open-Sans", sans-serif;
+  font-weight: 500; /* Dibuat lebih tipis */
+  color: #777; /* Warna abu-abu yang lebih lembut */
+  font-size: 0.9rem;
+  text-transform: uppercase; /* Uppercase untuk tampilan label */
+}
+
+.stat-card .material-icons-outlined {
+  font-size: 2.5rem; /* Lebih kecil */
+  color: #2247ab;
+}
+
+/* --- Media Query: Horizontal Layout (Tetap Sama) --- */
+@media (min-width: 768px) {
+  .stats-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px; /* Jarak antara card ditingkatkan */
+  }
+
+  .stat-card {
+    flex: 1;
+    margin-bottom: 0;
+  }
+}
+
+/* --- Styling About Us Section (Tambahan/Revisi) --- */
+
+.focus-icon-title {
+  display: flex;
+  align-items: center; /* Kunci: Sejajarkan gambar dan teks di tengah vertikal */
+  margin-bottom: 0.5rem;
+}
+
+/* Styling Gambar Logo Baru */
+.focus-logo {
+  height: 100px; /* Atur ukuran gambar agar kecil */
+  width: auto;
+  margin-right: 0.8rem; /* Beri jarak antara gambar dan judul (h3) */
+}
+
+/* Hapus atau nonaktifkan styling Material Icons yang lama untuk focus-item */
+/* .focus-item .material-icons-outlined { display: none; } */

@@ -1,0 +1,140 @@
+/* --- Styling Halaman Profil & Sejarah (KONSOLIDASI) --- */
+
+.profil-content {
+  /* Padding vertikal diatur oleh wrapper, padding horizontal di-nol-kan di sini */
+  padding: 2.5rem 0 6rem 0;
+}
+
+/* 1. Visi & Misi (MOBILE-FIRST: Stack Vertikal) */
+.visi-misi-grid {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fcfcfc;
+
+  /* Mobile-First: Stacking Vertikal */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* KUNCI FIX: Menghapus Padding Default UL (yang ada di Misi) */
+.misi-item ul {
+  list-style: disc;
+  /* WAJIB: Hapus margin yang membuat list menjorok */
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+/* Penyesuaian Heading untuk Misi dan Visi */
+.visi-item h2,
+.misi-item h2 {
+  font-size: 1.5rem;
+  color: #2247ab;
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+/* 2. Styling Struktur Organisasi */
+.struktur-organisasi {
+  margin-top: 4rem;
+  text-align: center;
+}
+.struktur-organisasi img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Kunci Layout Desktop: 2 Kolom (Media Query Override) */
+@media (min-width: 768px) {
+  .visi-misi-grid {
+    /* Beralih ke Grid 2 Kolom */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    text-align: left;
+    /* Hapus flex-direction: initial/none agar Grid mengambil alih */
+    flex-direction: initial;
+  }
+}
+
+/* --- Styling Timeline Sejarah --- */
+.timeline-container {
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+  text-align: left; /* Rata kiri */
+}
+
+.timeline-item {
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+  border-left: 3px solid #2247ab; /* Garis vertikal biru INLET */
+  position: relative;
+}
+
+.timeline-item h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 0.3rem;
+}
+
+/* Titik Timeline (Circle Icon) */
+.timeline-item:before {
+  content: "";
+  position: absolute;
+  left: -7px; /* Menempatkan titik di garis vertikal */
+  top: 0.1rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #2247ab;
+  border: 2px solid white; /* Border putih agar menonjol dari background */
+  box-shadow: 0 0 0 2px #2247ab;
+}
+
+/* --- Styling Timeline Sejarah --- */
+.timeline-container,
+.visi-misi-grid {
+  /* KOREKSI: Tambahkan padding kiri dan kanan di container timeline */
+  padding: 1.5rem 3rem;
+  margin-bottom: 2rem;
+  text-align: left; /* Rata kiri */
+}
+
+.timeline-item {
+  margin-bottom: 2rem;
+  /* Biarkan padding-left: 1.5rem; agar garis vertikal terlihat */
+  padding-left: 1.5rem;
+  /* ... (border-left dan positioning lainnya tetap sama) ... */
+}
+
+/* Styling Struktur Organisasi */
+.struktur-organisasi {
+  /* ... (margin dan text-align: center sudah ada) ... */
+  margin-top: 4rem;
+}
+
+.struktur-organisasi img {
+  /* Aturan dasar: Wajib responsif */
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  /* ... styling border ... */
+}
+
+/* KUNCI FIX: Batasi Ukuran di Desktop */
+@media (min-width: 992px) {
+  .struktur-organisasi img {
+    /* Batasi agar gambar tidak melebihi lebar tertentu di layar besar */
+    max-width: 800px; /* Atur batas maksimum lebar, misal 800px */
+
+    /* Tambahkan margin: 0 auto; jika belum ada, agar gambar tetap di tengah */
+    display: block;
+    margin: 1rem auto 0 auto;
+  }
+}
