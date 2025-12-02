@@ -1,0 +1,52 @@
+/* --- Halaman Form Peminjaman (views/public/loan_form.php) --- */
+
+.loan-form-container {
+  max-width: 700px; /* Sedikit lebih lebar dari Buku Tamu karena form lebih panjang */
+  margin: 40px auto;
+  padding: 25px;
+  background-color: #ffffff; /* Background putih agar fieldset lebih menonjol */
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Styling Fieldset (Grup Informasi) --- */
+.form-section {
+  border: 1px solid #dfe6e9; /* Garis pemisah abu-abu muda */
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 30px; /* Jarak antar fieldset */
+}
+
+.form-section legend {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  padding: 0 10px;
+  /* Memberi garis bawah visual pada legend */
+  border-bottom: 2px solid #3498db;
+}
+
+/* --- Styling Input Khusus (Date, Number, Select) --- */
+
+.standard-form input[type="date"],
+.standard-form input[type="number"],
+.standard-form select {
+  /* Menerapkan styling input standar untuk konsistensi */
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  background-color: #fcfcfc; /* Memberi sedikit warna untuk input penting */
+}
+
+.standard-form select {
+  /* Pastikan tinggi select konsisten dengan input lainnya */
+  appearance: none; /* Menghilangkan style default browser di beberapa browser */
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007BC7%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.2-5.4H18.6c-5.1%200-9.8%202-13.2%205.4A17.6%2017.6%200%200%200%200%2082.6c0%204.8%201.8%209.4%205.2%2012.9l120.5%20120.5c3.5%203.5%208.1%205.4%2013%205.4s9.5-1.9%2013-5.4L287.2%2095.5a17.6%2017.6%200%200%200%205.2-12.9c.1-4.8-1.8-9.4-5.4-13.2z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 10px auto;
+  padding-right: 30px;
+}

@@ -1,0 +1,87 @@
+/* =============================== */
+/* ADMIN BASE STYLES & LOGIN PAGE  */
+/* =============================== */
+
+/* Font & Body Setup */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f6; /* Warna latar belakang admin */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Login Box Container */
+.login-box {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+.login-box:hover {
+  transform: translateY(-2px); /* Efek minor saat hover */
+}
+
+/* Logo & Title */
+.logo-cms {
+  margin-bottom: 15px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #3498db;
+  letter-spacing: 1px;
+}
+.login-box h2 {
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+/* Form Input Group */
+.input-group {
+  margin-bottom: 25px;
+  text-align: left;
+}
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #34495e;
+}
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.input-group input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  outline: none;
+}
+
+/* Button */
+.btn-login {
+  width: 100%;
+  padding: 14px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 600;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+.btn-login:hover {
+  background-color: #2980b9;
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
