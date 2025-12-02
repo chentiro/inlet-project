@@ -18,4 +18,7 @@
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/detail_kegiatan.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/galeri.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/kontak.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/buku_tamu.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/peminjaman.css">
+    
 </head>

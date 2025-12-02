@@ -39,7 +39,7 @@
                 <details class="dropdown">
                     <summary>Service <i class="material-icons-outlined">expand_more</i></summary>
                     <ul class="dropdown-menu">
-                        <li><a href="/buku-tamu"><i class="material-icons-outlined">login</i> Buku Tamu</a></li>
+                        <li><a href="/bukutamu"><i class="material-icons-outlined">login</i> Buku Tamu</a></li>
                         <li><a href="/peminjaman"><i class="material-icons-outlined">event_available</i> Peminjaman</a></li>
                         <li><a href="/absensi"><i class="material-icons-outlined">camera_alt</i> Absensi Mhs</a></li>
                     </ul>

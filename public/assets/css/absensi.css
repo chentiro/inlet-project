@@ -1,0 +1,99 @@
+/* --- PERBAIKAN AKHIR CSS UNTUK ABSENSI MAHASISWA --- */
+
+.attendance-container {
+  max-width: 450px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fcfcfc;
+  border: 1px solid #e1e1e1;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center; /* Pusat semua konten dalam container */
+}
+
+/* --- Input NIM (NIM harus Rata Tengah) --- */
+.form-group {
+  width: 50%;
+  margin-bottom: 25px;
+  text-align: left; /* Biarkan label rata kiri */
+}
+
+.standard-form input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #bdc3c7;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  text-align: center; /* <--- PENTING: NIM RATA TENGAH */
+  font-weight: 600;
+}
+
+/* --- Area Kamera & Video Stream (Pusat Visual) --- */
+.camera-area {
+  /* Menggunakan Flexbox untuk Pusatkan Video */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+}
+
+#video-stream {
+  display: block;
+  width: 320px;
+  height: 240px;
+  border: 4px solid #3498db;
+  border-radius: 8px;
+  background-color: #000;
+  transition: all 0.5s ease;
+  object-fit: cover; /* Pastikan video mengisi area tanpa distorsi saat aktif */
+}
+
+/* --- Tombol Aksi (Rata Tengah dan Konsisten) --- */
+
+.form-action {
+  display: flex;
+  justify-content: center; /* Pusatkan seluruh blok tombol */
+  gap: 15px;
+  margin-top: 30px;
+}
+
+/* Tombol memiliki lebar proporsional */
+#start-camera-btn,
+#capture-btn {
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 700;
+  transition: background-color 0.3s ease, opacity 0.3s;
+  flex: 1; /* Agar kedua tombol memiliki lebar yang sama */
+  max-width: 45%; /* Batasi agar tidak terlalu lebar di desktop */
+}
+
+#capture-btn:disabled {
+  opacity: 0.6; /* Membuat tampilan lebih jelas saat dinonaktifkan */
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+  color: #7f8c8d;
+  box-shadow: none;
+}
+
+/* --- Responsif (Mobile View) --- */
+@media (max-width: 500px) {
+  .attendance-container {
+    padding: 15px;
+  }
+  .form-action {
+    flex-direction: column; /* Tombol bertumpuk di layar kecil */
+    gap: 10px;
+  }
+  /* Pastikan tombol penuh lebar di mobile */
+  #start-camera-btn,
+  #capture-btn {
+    width: 100%;
+    max-width: 100%;
+  }
+  #video-stream {
+    width: 100%;
+    height: auto;
+  }
+}

@@ -1,0 +1,104 @@
+/* ===================================== */
+/* TABLE & FORM STYLES (Kelola Konten) */
+/* ===================================== */
+
+/* Card Wrapper untuk Halaman Konten */
+.content-card {
+  /* Ganti background card standard jika perlu, tapi kita pakai background white default */
+  border-left: none; /* Hapus border kiri biru */
+  padding: 25px 30px; /* Padding card yang lebih luas */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Header di dalam Card */
+.card-header-with-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+.card-header-with-btn h2 {
+  margin: 0;
+  font-size: 1.4em;
+  color: var(--color-text-dark);
+}
+
+/* Tombol Tambah Konten */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+.btn-primary:hover {
+  background-color: #1a2963; /* Warna biru lebih gelap saat hover */
+}
+.btn-primary .material-icons-outlined {
+  margin-right: 5px;
+  font-size: 20px;
+}
+
+/* Table Styling */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.data-table th,
+.data-table td {
+  padding: 12px 0;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+.data-table th {
+  color: var(--color-text-dark);
+  font-weight: 600;
+  background-color: white; /* Header table putih */
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+/* Status Badge Styling */
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-weight: 600;
+  display: inline-block;
+  color: white;
+}
+.status-badge.publish {
+  background-color: #2ecc71; /* Hijau */
+}
+.status-badge.draft {
+  background-color: #f39c12; /* Kuning/Oranye */
+}
+/* Tambahkan badge lain jika perlu (Pending, Rejected, dll) */
+
+/* Action Icons */
+.action-icons a {
+  color: var(--color-text-grey);
+  margin-right: 12px;
+  font-size: 18px;
+  transition: color 0.2s;
+}
+.action-icons a:hover {
+  color: var(--color-primary);
+}
+.action-icons .delete-icon {
+  color: #e74c3c; /* Warna merah untuk delete */
+}
+.action-icons .delete-icon:hover {
+  color: #c0392b;
+}
