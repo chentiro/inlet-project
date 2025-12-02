@@ -1,5 +1,4 @@
 <?php
-// public/index.php
 
 // === WAJIB: DEFENISI & SETUP GLOBAL ===
 define('ROOT_PATH', dirname(__DIR__) . '/'); 
@@ -63,3 +62,7 @@ if (file_exists($controllerFile)) {
     http_response_code(404);
     echo "<h1>404 Not Found: Halaman '$controllerName' Tidak Ditemukan</h1>";
 }
+
+// require_once '../app/init.php';
+
+// $app = new App;
