@@ -1,35 +1,44 @@
 <?php
+// File: app/core/Database.php
 
 class Database {
-    private $host = DB_HOST;
-    private $port = DB_PORT; 
-    private $user = DB_USER;
-    private $pass = DB_PASS;
-    private $db_name = DB_NAME;
-
-    private $dbh;
-    private $stmt;
-
+    private $dbh; // Database Handler (Koneksi PDO)
+    private $stmt; // Statement yang disiapkan
+    
     public function __construct() {
-        
-        $dsn = 'pgsql:host=' . $this->host . ';port=' . $this->port . ';dbname=' . $this->db_name;
+        // Ambil nilai dari environment (Wajib: Asumsi file .env sudah di-load)
+        $dbHost = getenv('DB_HOST') ?? 'localhost';
+        $dbPort = getenv('DB_PORT') ?? '5432';
+        $dbName = getenv('DB_NAME') ?? 'db_inlet';
+        $dbUser = getenv('DB_USER') ?? 'postgres';
+        $dbPass = getenv('DB_PASS') ?? 'admin1234'; 
+
+        // Data Source Name (DSN) untuk PostgreSQL
+        $dsn = 'pgsql:host=' . $dbHost . ';port=' . $dbPort . ';dbname=' . $dbName;
 
         $option = [
-            PDO::ATTR_PERSISTENT => true,
+            // Koneksi tetap (Persistent connection)
+            PDO::ATTR_PERSISTENT => true, 
+            // Mode error: Exception (Terbaik untuk debugging)
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ];
 
         try {
-            $this->dbh = new PDO($dsn, $this->user, $this->pass, $option);
+            $this->dbh = new PDO($dsn, $dbUser, $dbPass, $option);
+            // Tambahan: Set Charset untuk kompatibilitas
+            $this->dbh->exec("SET NAMES 'utf8'"); 
         } catch(PDOException $e) {
-            die('Connection Failed: ' . $e->getMessage());
+            // Tangani kegagalan koneksi
+            die('Koneksi PostgreSQL Gagal: ' . $e->getMessage());
         }
     }
 
+    // Metode untuk menyiapkan prepared statement (Sama dengan prepare() di PDO)
     public function query($query) {
         $this->stmt = $this->dbh->prepare($query);
     }
-
+    
+    // Metode untuk binding value (Type checking sudah bagus)
     public function bind($param, $value, $type = null) {
         if(is_null($type)) {
             switch(true) {
@@ -67,10 +76,9 @@ class Database {
         return $this->stmt->rowCount();
     }
     
-    // Khusus Postgres: Ambil ID terakhir insert agak beda
-    // Biasanya harus return ID langsung di query "INSERT ... RETURNING id"
-    // Tapi lastInsertId kadang bekerja jika sequence diset default.
-    public function lastInsertId() {
-        return $this->dbh->lastInsertId();
+    // Koreksi untuk PostgreSQL: Menerima nama sequence opsional
+    public function lastInsertId($sequenceName = null) {
+        return $this->dbh->lastInsertId($sequenceName);
     }
 }
+?>

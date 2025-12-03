@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - INLET CMS</title>
     
-    <link rel="stylesheet" href="/public/css/admin.css"> 
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/login.css">
     
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     

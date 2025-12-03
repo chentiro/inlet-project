@@ -4,7 +4,8 @@
         <div class="breadcrumb">Home / <?= $page_title ?? 'Dashboard' ?></div>
     </div>
     <div class="search-box">
-        <span class="material-icons-outlined">search</span>
         <input type="text" placeholder="Search...">
+        <!-- <span class="material-icons-outlined">search</span> -->
     </div>
+
 </div>

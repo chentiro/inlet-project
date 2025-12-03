@@ -1,104 +1,187 @@
+/* ================================================= */
+/* GLOBAL VARIABLES (Pastikan ini ada di :root) */
+/* ================================================= */
+/* :root {
+    --inlet-color-primary: #293B89;
+    --inlet-color-text-dark: #333;
+    --inlet-color-text-grey: #666;
+    --inlet-color-success: #2ecc71;
+    --inlet-color-warning: #f39c12;
+    --inlet-color-danger: #e74c3c;
+} 
+*/
+
 /* ===================================== */
-/* TABLE & FORM STYLES (Kelola Konten) */
+/* CARD & HEADER STYLES */
 /* ===================================== */
 
-/* Card Wrapper untuk Halaman Konten */
-.content-card {
-  /* Ganti background card standard jika perlu, tapi kita pakai background white default */
-  border-left: none; /* Hapus border kiri biru */
-  padding: 25px 30px; /* Padding card yang lebih luas */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+.inlet-admin-card {
+  background-color: white;
+  padding: 25px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Shadow yang sedikit lebih kuat */
 }
 
-/* Header di dalam Card */
-.card-header-with-btn {
+.inlet-card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ddd; /* Warna abu-abu yang lebih tegas */
   padding-bottom: 15px;
   margin-bottom: 20px;
 }
-.card-header-with-btn h2 {
+.inlet-card-header .inlet-title {
   margin: 0;
-  font-size: 1.4em;
-  color: var(--color-text-dark);
+  font-size: 1.5em;
+  color: var(--inlet-color-text-dark, #333);
+  font-weight: 700;
 }
 
-/* Tombol Tambah Konten */
-.btn-primary {
-  background-color: var(--color-primary);
-  color: white;
+/* ===================================== */
+/* BUTTON STYLES */
+/* ===================================== */
+.inlet-btn {
   padding: 8px 15px;
   border-radius: 6px;
   text-decoration: none;
   font-size: 14px;
   display: flex;
   align-items: center;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
 }
-.btn-primary:hover {
-  background-color: #1a2963; /* Warna biru lebih gelap saat hover */
+.inlet-btn-primary {
+  background-color: var(--inlet-color-primary, #293b89);
+  color: white;
 }
-.btn-primary .material-icons-outlined {
+.inlet-btn-primary:hover {
+  background-color: #1a2963;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.inlet-btn .material-icons-outlined {
   margin-right: 5px;
   font-size: 20px;
 }
 
-/* Table Styling */
-.table-responsive {
+/* ===================================== */
+/* TABLE STYLING */
+/* ===================================== */
+.inlet-table-container {
   width: 100%;
   overflow-x: auto;
 }
-.data-table {
+.inlet-data-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
 }
-.data-table th,
-.data-table td {
-  padding: 12px 0;
+.inlet-data-table th,
+.inlet-data-table td {
+  padding: 14px 0; /* Padding yang lebih lega */
   text-align: left;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #f0f0f0; /* Garis yang lebih tipis */
 }
-.data-table th {
-  color: var(--color-text-dark);
+.inlet-data-table th {
+  color: var(--inlet-color-text-grey, #666);
   font-weight: 600;
-  background-color: white; /* Header table putih */
   text-transform: uppercase;
-  font-size: 0.9em;
+  font-size: 0.85em;
+}
+.inlet-data-table tbody tr:hover {
+  background-color: #f9f9f9; /* Memberi indikasi interaksi pada baris */
 }
 
-/* Status Badge Styling */
-.status-badge {
+/* ===================================== */
+/* BADGE STYLING */
+/* ===================================== */
+.inlet-badge {
   padding: 4px 8px;
   border-radius: 4px;
-  font-size: 0.85em;
-  font-weight: 600;
+  font-size: 0.8em;
+  font-weight: 700;
   display: inline-block;
   color: white;
 }
-.status-badge.publish {
-  background-color: #2ecc71; /* Hijau */
+.inlet-badge.is-publish {
+  background-color: var(--inlet-color-success, #2ecc71);
 }
-.status-badge.draft {
-  background-color: #f39c12; /* Kuning/Oranye */
+.inlet-badge.is-draft {
+  background-color: var(--inlet-color-warning, #f39c12);
 }
-/* Tambahkan badge lain jika perlu (Pending, Rejected, dll) */
 
-/* Action Icons */
-.action-icons a {
-  color: var(--color-text-grey);
-  margin-right: 12px;
+/* ===================================== */
+/* ACTION ICONS */
+/* ===================================== */
+.inlet-action-icons a {
+  color: var(--inlet-color-text-grey, #666);
+  margin-right: 15px;
   font-size: 18px;
   transition: color 0.2s;
 }
-.action-icons a:hover {
-  color: var(--color-primary);
+.inlet-action-icons a:last-child {
+  margin-right: 0;
 }
-.action-icons .delete-icon {
-  color: #e74c3c; /* Warna merah untuk delete */
+.inlet-action-icons a:hover {
+  color: var(--inlet-color-primary, #293b89);
 }
-.action-icons .delete-icon:hover {
+.inlet-action-icons .inlet-icon-delete {
+  color: var(--inlet-color-danger, #e74c3c);
+}
+.inlet-action-icons .inlet-icon-delete:hover {
   color: #c0392b;
+}
+
+/* ===================================== */
+/* MOBILE STYLES (Di bawah 768px)       */
+/* ===================================== */
+@media screen and (max-width: 768px) {
+  /* Hapus Padding di Card agar konten mendapat ruang lebih */
+  .inlet-admin-card {
+    padding: 15px;
+  }
+
+  /* Sembunyikan Header (TH) Tabel */
+  .inlet-data-table thead {
+    display: none;
+  }
+
+  /* Ubah Baris (TR) menjadi Block (membuatnya mengambil 100% lebar) */
+  .inlet-data-table,
+  .inlet-data-table tbody,
+  .inlet-data-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  /* Beri Batas Pemisah Jelas antara setiap Baris Data */
+  .inlet-data-table tr {
+    margin-bottom: 10px;
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Ubah Kolom (TD) menjadi Block */
+  .inlet-data-table td {
+    display: block;
+    text-align: right;
+    padding: 8px 0 !important;
+    border-bottom: none; /* Hapus garis bawah antar kolom */
+    position: relative;
+    padding-left: 50% !important; /* Ruang untuk Label Header */
+    text-align: left; /* Teks konten tetap rata kiri */
+  }
+
+  /* Tambahkan Label Header (::before) ke setiap Kolom TD */
+  .inlet-data-table td::before {
+    content: attr(data-label); /* Mengambil nilai dari atribut data-label */
+    position: absolute;
+    left: 0;
+    width: 45%;
+    padding-left: 10px;
+    font-weight: 600;
+    color: var(--inlet-color-text-dark, #333);
+    text-align: left;
+  }
 }

@@ -1,7 +1,7 @@
 <?php
 
 
-class DashboardController {
+class IndexController {
     public function index() {
         
         include '../views/layouts/header_admin.php';

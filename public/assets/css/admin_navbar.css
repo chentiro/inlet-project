@@ -1,0 +1,115 @@
+/* ===================================== */
+/* MOBILE HEADER (FINAL KOREKSI DAN KONSOLIDASI) */
+/* ===================================== */
+
+@media (max-width: 768px) {
+  /* 1. Resetting the Header to be stackable */
+  .admin-header {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px 0 15px;
+  }
+
+  /* 2. Search Box (BARIS 1 / TOP) */
+  .admin-header .search-box {
+    order: 2; /* PENTING: Pindahkan ke atas */
+    width: 100%;
+    margin-bottom: 15px;
+
+    /* Gaya dan Perbaikan Ikon/Placeholder */
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0 5px; /* Padding wrapper */
+    background-color: #fff;
+  }
+  .admin-header .search-box .material-icons-outlined {
+    margin-right: 10px; /* Jarak Ikon ke Placeholder */
+    margin-left: 10px; /* Jarak dari border kiri */
+    padding: 0;
+    color: var(--color-text-grey);
+    flex-shrink: 0;
+  }
+  .admin-header .search-box input {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+
+  /* 3. Title & Breadcrumb (BARIS 2 / BOTTOM) */
+  .admin-header .header-left {
+    order: 1; /* Pindahkan ke bawah */
+    width: 100%;
+
+    /* Memisahkan Judul (Kiri) dan Breadcrumb (Kanan) */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    padding-bottom: 10px; /* Jarak dari bawah header */
+  }
+
+  /* 4. Formatting Title and Breadcrumb */
+  .admin-header .header-left .page-title {
+    font-size: 1.3em;
+    margin: 0;
+    white-space: nowrap;
+  }
+  .admin-header .header-left .breadcrumb {
+    font-size: 0.8em;
+    color: var(--color-text-grey);
+    white-space: nowrap;
+  }
+
+  /* --- 1. KOREKSI IKON & INPUT FIELD --- */
+  .admin-header .search-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0 5px; /* Jaga agar ikon tidak terlalu mepet ke kiri border */
+    background-color: #fff;
+  }
+
+  /* Memastikan Ikon memiliki jarak yang cukup ke kanan */
+  .admin-header .search-box .material-icons-outlined {
+    margin-right: 15px; /* Tambahkan jarak yang lebih besar */
+    margin-left: 10px; /* Jarak dari border kiri */
+    padding: 0; /* Hapus padding konflik */
+    color: var(--color-text-grey);
+    flex-shrink: 0;
+  }
+
+  /* Memastikan Input mengambil sisa ruang tanpa padding berlebih */
+  .admin-header .search-box input {
+    width: 100%;
+    padding: 10px 0; /* Padding vertikal, horizontal 0 */
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+}
+
+/* ===================================== */
+/* ACTION ICONS (KOREKSI GARIS BAWAH) */
+/* ===================================== */
+
+.inlet-action-icons a {
+  color: var(--color-text-grey);
+  margin-right: 15px;
+  font-size: 18px;
+  transition: color 0.2s;
+
+  /* SOLUSI: Hapus garis bawah link */
+  text-decoration: none;
+}
+.inlet-action-icons a:hover {
+  color: var(--color-primary);
+  /* Penting: Pastikan hover juga tidak ada underline */
+  text-decoration: none;
+}

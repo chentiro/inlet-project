@@ -1,12 +1,18 @@
 /* ===================================== */
-/* SIDEBAR & LAYOUT STRUCTURE STYLES (FINAL & CLEANED) */
+/* SIDEBAR & LAYOUT STRUCTURE STYLES - FINAL KONSOLIDASI */
 /* ===================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+/* Import font Roboto */
+/* Import font Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+/* ... */
+body {
+  font-family: "Poppins", sans-serif; /* Terapkan Poppins */
+}
 
 /* Global Variables & Reset */
 :root {
-  --color-sidebar: #1e307e;
+  --color-sidebar: #1e307e; /* Biru Tua */
   --color-primary: #1e307e;
   --color-light-bg: #ebe7e7; /* Warna latar belakang konten */
   --color-text-dark: #333333;
@@ -23,6 +29,7 @@ body {
 body {
   font-family: "Roboto", sans-serif;
   background-color: var(--color-light-bg);
+  transition: margin-left 0.3s ease-in-out;
 }
 
 /* Layout Utama (Desktop) */
@@ -31,11 +38,11 @@ body {
   min-height: 100vh;
 }
 
-/* 1. Mini Toolbar (Desktop - Biru Tua) */
+/* --- 1. MINI TOOLBAR --- */
 .mini-toolbar {
   width: 65px;
-  background-color: var(--color-sidebar); /* BIRU TUA */
-  color: white; /* Ikon Putih */
+  background-color: var(--color-sidebar);
+  color: white;
   padding: 20px 0;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -43,6 +50,18 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-shrink: 0;
+}
+.mini-toolbar-top-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.mini-toolbar-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
 }
 .mini-toolbar .toolbar-item {
   padding: 10px 0;
@@ -53,16 +72,15 @@ body {
   justify-content: center;
   align-items: center;
 }
+.mini-toolbar .toolbar-item:hover {
+  opacity: 1;
+}
 .mini-toolbar .toolbar-item .material-icons-outlined,
 .mini-toolbar .toolbar-item span {
-  color: white; /* Ikon Putih */
+  color: white;
   font-size: 24px;
   display: block;
   text-align: center;
-}
-.mini-toolbar .toolbar-item span[style*="background: white"] {
-  background: white !important;
-  color: var(--color-sidebar) !important;
 }
 .profile-img {
   width: 40px !important;
@@ -73,10 +91,10 @@ body {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-/* 2. Main Sidebar (Desktop - Putih) */
+/* --- 2. MAIN SIDEBAR --- */
 .sidebar {
   width: 200px;
-  background-color: #ffffff; /* PUTIH */
+  background-color: #ffffff;
   color: var(--color-text-dark);
   box-shadow: 1px 0 5px rgba(0, 0, 0, 0.05);
   display: flex;
@@ -93,61 +111,116 @@ body {
   margin-bottom: 5px;
 }
 .sidebar-header img {
-  width: 100px; /* Ukuran Logo Utama */
+  width: 100px;
   margin-right: 10px;
   object-fit: contain;
 }
-.lab-name strong {
-  color: var(--color-sidebar);
-}
-.sidebar ul {
+
+/* Menu Utama (Dashboard, Buku Tamu, Konten) */
+.sidebar .main-menu {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.sidebar ul li a {
+.sidebar .main-menu > li > a {
   display: flex;
   align-items: center;
-  padding: 12px 20px;
-  color: var(--color-sidebar); /* Teks Menu Biru INLET */
+  padding: 12px 20px; /* PADDING UTAMA */
+  color: var(--color-sidebar);
   text-decoration: none;
   transition: background-color 0.2s, color 0.2s;
   font-weight: 500;
 }
-.sidebar ul li a .material-icons-outlined {
-  margin-right: 15px;
+.sidebar .main-menu > li > a .material-icons-outlined {
+  margin-right: 15px; /* Jarak Ikon ke Teks */
   font-size: 20px;
   color: var(--color-sidebar);
 }
-.sidebar ul li.active a {
+.sidebar .main-menu > li.active > a,
+.sidebar .main-menu > li > a:hover {
   background-color: var(--color-light-bg);
   color: var(--color-sidebar);
   font-weight: 700;
-  border-radius: 0;
 }
-.sidebar-bottom {
-  padding: 20px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-.sidebar-bottom a {
-  color: var(--color-sidebar);
-  text-decoration: none;
+
+/* --- 3. SUBMENU (EXPANDABLE) STYLES --- */
+
+/* Menu toggle item (Konten) - Agar sejajar dengan item utama lain */
+.sidebar .main-menu .menu-toggle {
   display: flex;
   align-items: center;
-  font-weight: 500;
+  /* TIDAK PERLU PADDING TAMBAHAN DI SINI */
 }
 
-/* ===================================== */
-/* MOBILE RESPONSIVENESS (MAX-WIDTH: 768PX) */
-/* ===================================== */
+/* Ikon Utama (Konten) pada saat aktif/expanded */
+.sidebar .main-menu > li.expanded > a {
+  background-color: #f0f0f0; /* Beri background berbeda saat menu utama terbuka */
+  color: var(--color-primary);
+  font-weight: 700;
+}
 
+/* CSS untuk mengatur ikon panah */
+.sidebar .expand-icon {
+  transition: transform 0.3s;
+  margin-right: -5px;
+}
+
+/* Rotasi ikon panah saat menu diperluas */
+.sidebar .expanded .expand-icon {
+  transform: rotate(180deg);
+}
+
+/* Styling Wrapper Submenu */
+.sidebar .submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background-color: #f7f7f7;
+}
+
+/* Menampilkan submenu saat class 'expanded' aktif */
+.sidebar .expanded .submenu {
+  max-height: 500px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* Styling Link Submenu - KOREKSI FINAL INDENTASI */
+.sidebar .submenu li a {
+  /* PADDING KIRI = 35px: Pading 20px + Indentasi 15px */
+  padding: 8px 20px 8px 35px !important;
+  font-size: 0.9em;
+  color: var(--color-text-dark);
+  text-decoration: none;
+  display: block;
+}
+
+/* Hover State */
+.sidebar .submenu li a:hover {
+  background-color: #eeeeee;
+  color: var(--color-primary);
+}
+
+/* Styling Item Submenu yang Sedang Aktif - KOREKSI FINAL INDENTASI */
+.sidebar .submenu li.active a {
+  color: var(--color-primary);
+  font-weight: 700;
+  background-color: var(--color-light-bg);
+  border-radius: 4px;
+  margin: 0 10px;
+  /* Padding kiri 35px - 10px margin = 25px dari kiri sidebar */
+  padding: 8px 20px 8px 25px !important;
+}
+
+/* --- 4. MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
-  /* Layout Utama & Content Wrapper */
   .admin-layout {
     flex-direction: column;
   }
 
-  /* Mini Toolbar (Mobile Header Fixed) */
   .mini-toolbar {
     width: 100%;
     height: 60px;
@@ -157,29 +230,23 @@ body {
     justify-content: space-between;
     position: fixed;
     top: 0;
-    z-index: 99999 !important; /* Paksa di atas segalanya */
-    background-color: var(--color-sidebar) !important; /* Paksa Biru */
+    z-index: 1000;
+    background-color: var(--color-sidebar) !important;
   }
 
-  /* Mini Toolbar Items */
-  .mini-toolbar > div:first-child {
-    display: flex;
-    align-items: center;
+  .mini-toolbar-top-icons {
+    flex-direction: row;
     gap: 15px;
   }
-  .mini-toolbar .toolbar-item:nth-child(3),
-  .mini-toolbar .toolbar-item:nth-child(4) {
-    display: none !important; /* Sembunyikan Bell dan Gear */
-  }
   .mini-toolbar-bottom {
-    padding: 0;
-  }
-  .mini-toolbar .toolbar-item .material-icons-outlined,
-  .mini-toolbar .toolbar-item span {
-    color: white !important; /* Ikon Putih */
+    display: block;
   }
 
-  /* Main Sidebar (Off-Canvas) */
+  .mini-toolbar .toolbar-item:nth-child(3),
+  .mini-toolbar .toolbar-item:nth-child(4) {
+    display: none;
+  }
+
   .sidebar {
     width: 250px;
     position: fixed;
@@ -187,45 +254,172 @@ body {
     z-index: 999;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
-    padding-top: 60px; /* Kompensasi untuk fixed header */
+    padding-top: 60px;
   }
 
-  /* Content Wrapper */
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
   .main-content-wrapper {
-    padding-top: 60px !important; /* Minimal tinggi toolbar */
+    padding-top: 60px !important;
     width: 100%;
     padding-left: 15px;
     padding-right: 15px;
     box-sizing: border-box;
   }
 
-  /* Search Bar di Header */
-  .admin-header .search-box {
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
     display: none;
   }
-
-  /* Tampilkan Sidebar saat JS menambahkan class 'open' */
-  .sidebar.open {
-    transform: translateX(0);
+  .sidebar.open + .sidebar-overlay {
+    display: block;
   }
 }
 
+/* ===================================== */
+/* 3. SUBMENU (EXPANDABLE) STYLES - FINAL KOREKSI */
+/* ===================================== */
+
+/* Styling Wrapper Submenu */
+.sidebar .submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 0; /* Tetap tersembunyi secara default */
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background-color: #f7f7f7;
+}
+
+/* Menampilkan submenu saat class 'expanded' aktif */
+.sidebar .expanded .submenu {
+  max-height: 500px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* Styling Link Submenu */
+.sidebar .submenu li a {
+  /* INDENTASI: 35px agar menjorok sedikit dari menu utama (20px) */
+  padding: 8px 20px 8px 35px; /* Hapus !important yang konflik */
+  font-size: 0.9em; /* Sedikit lebih kecil dari teks utama */
+  color: var(--color-text-dark);
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.2s;
+}
+
+/* Hover State */
+.sidebar .submenu li a:hover {
+  background-color: #eeeeee; /* Warna abu-abu yang lebih terang saat hover */
+  color: var(--color-primary);
+}
+
+/* Styling Item Submenu yang Sedang Aktif */
+.sidebar .submenu li.active a {
+  color: var(--color-primary);
+  font-weight: 700;
+  background-color: var(--color-light-bg); /* Background abu-abu terang */
+  border-radius: 4px;
+  margin: 0 10px; /* Jarak dari kiri/kanan sidebar */
+
+  /* PADDING AKTIF: Disesuaikan karena adanya margin 10px */
+  padding: 8px 20px 8px 25px !important; /* Gunakan !important HANYA di sini untuk meng-override padding di atas */
+}
+
+/* Ikon Utama (Konten) pada saat aktif/expanded */
+.sidebar .main-menu > li.expanded > a {
+  background-color: #f0f0f0;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* --- 3. SUBMENU (EXPANDABLE) STYLES --- */
+
+/* ... (Kode lainnya yang benar) ... */
+
+/* Styling Link Submenu - KOREKSI FINAL INDENTASI */
+.sidebar .submenu li a {
+  /* PADDING KIRI = 35px: Pading 20px + Indentasi 15px */
+  padding: 8px 20px 8px 35px !important; /* Gunakan !important hanya jika diperlukan, tapi 35px sudah benar */
+  font-size: 0.9em;
+  color: var(--color-text-dark);
+  text-decoration: none;
+  display: block;
+}
+
+/* ... (Lanjutkan dengan Hover dan Active State) ... */
+
+/* CSS untuk mengatur ikon panah */
+.sidebar .expand-icon {
+  transition: transform 0.3s; /* Tambahkan transisi agar animasinya halus */
+  margin-right: -5px;
+}
+
+/* Rotasi ikon panah saat menu diperluas */
+.sidebar .expanded .expand-icon {
+  transform: rotate(
+    180deg
+  ); /* Memutar ikon 180 derajat (menjadi panah ke atas) */
+}
+
+/* Atur jarak Ikon di dalam Submenu */
+.sidebar .submenu li a .material-icons-outlined {
+  /* Margin kanan ikon agar teks tidak terlalu dekat */
+  margin-right: 10px;
+  /* Ukuran ikon di submenu mungkin lebih kecil, opsional: */
+  font-size: 18px;
+  /* Warna ikon agar sesuai dengan warna teks submenu */
+  color: var(--color-text-dark);
+}
+/* Overwrite warna ikon saat submenu link aktif */
+.sidebar .submenu li.active a .material-icons-outlined {
+  color: var(--color-primary);
+}
+
+/* Styling Link Submenu */
+.sidebar .submenu li a {
+  /* PADDING KIRI = 35px */
+  padding: 8px 20px 8px 35px;
+  font-size: 0.9em;
+  color: var(--color-text-dark);
+  text-decoration: none;
+
+  /* KOREKSI KRITIS: Mengubah block menjadi flex dan menambahkan align-items: center */
+  display: flex;
+  align-items: center;
+  /* Optional: Tambahkan sedikit jarak antara ikon dan teks */
+  gap: 10px;
+
+  transition: background-color 0.2s;
+}
+
+/* Pastikan margin ikon di dalam submenu dihapus atau diatur oleh gap */
+.sidebar .submenu li a .material-icons-outlined {
+  margin-right: 0; /* Hapus margin agar gap bisa bekerja */
+  /* ... */
+}
+
 @media (max-width: 768px) {
-  /* 3. Atur Wrapper Ikon Atas (menu, profile, notif, settings) */
-  .mini-toolbar > div:first-child {
-    display: flex; /* <-- HARUS FLEX */
-    align-items: center;
-    gap: 15px;
+  /* ... kode lain ... */
+
+  .main-content-wrapper {
+    /* PENTING: Kompensasi tinggi fixed header mobile */
+    padding-top: 60px !important;
+
+    /* Pastikan padding kiri dan kanan standar */
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
   }
 
-  /* Pastikan Ikon Hamburger (Elemen pertama) tidak memiliki display: none */
-  .mini-toolbar .toolbar-item:first-child {
-    display: block !important; /* Paksa muncul */
-  }
-
-  /* Pastikan Ikon Logout Terlihat */
-  .mini-toolbar-bottom {
-    display: flex !important; /* Pastikan wrapper logout terlihat */
-    /* ... lainnya ... */
-  }
+  /* ... kode lain ... */
 }

@@ -1,10 +1,18 @@
 <IfModule mod_rewrite.c>
-  Options -Multiviews
-  RewriteEngine On
-  RewriteBase /inlet-project/public/
-  
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-f
-  
-  RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+    Options -Multiviews
+    RewriteEngine On
+    
+    # RewriteBase: Hanya path ke root proyek
+    RewriteBase /inlet-project/
+    
+    # Kecualikan folder public dari RewriteRule (untuk file statis)
+    RewriteRule ^public/(.*)$ - [L]
+
+    # Jangan proses permintaan jika itu adalah direktori yang ada
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # Jangan proses permintaan jika itu adalah file yang ada
+    RewriteCond %{REQUEST_FILENAME} !-f
+    
+    # Arahkan semua permintaan ke public/index.php
+    RewriteRule ^(.*)$ public/index.php [L]
 </IfModule>
