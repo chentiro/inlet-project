@@ -18,10 +18,10 @@
     </div>
     
     <div class="mini-toolbar-bottom">
-        <div class="toolbar-item">
-            <span class="material-icons-outlined">logout</span>
-        </div>
-    </div>
+    <a href="<?php echo BASE_URL; ?>auth/logout" class="toolbar-item" title="Logout">
+        <span class="material-icons-outlined">logout</span>
+    </a>
+</div>
 
 </div>
 

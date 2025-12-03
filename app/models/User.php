@@ -1,106 +1,55 @@
 <?php
 
-class User {
-    private $table = 'users';
+require_once ROOT_PATH . 'app\core\Database.php';
+
+class UserModel {
     private $db;
+    private $table = 'users';
 
     public function __construct() {
-        $this->db = new Database;
+        // Asumsi: Class Database sudah di-load dan bisa diakses
+        $this->db = Database::getInstance()->getConnection(); 
     }
 
-    public function getAll() {
-        $this->db->query("SELECT id, name, email, role, created_at FROM " . $this->table . " ORDER BY role ASC, name ASC");
-        return $this->db->resultSet();
-    }
+    /**
+     * Mencari user berdasarkan username ATAU email.
+     * @param string $credential (Bisa berupa username atau email)
+     * @return array|false Data user jika ditemukan.
+     */
+    // app/models/UserModel.php
 
-    public function getUserByEmail($email) {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE email = :email');
-        $this->db->bind('email', $email);
-        return $this->db->single();
-    }
+// ... (di dalam public function findUserByCredentials($credential)) ...
 
-    public function getById($id) {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id = :id');
-        $this->db->bind('id', $id);
-        return $this->db->single();
-    }
-
-    public function create($data) {
-        $query = "INSERT INTO users (name, email, password, role) 
-                  VALUES (:name, :email, :password, :role)";
+public function findUserByCredentials($credential) {
+    // ASUMSI: Kolom yang ada di database Anda bernama 'password' (bukan 'password_hash')
+    $sql = "SELECT id, username, email, password AS password_hash, role, is_active 
+            FROM {$this->table} 
+            WHERE (username = :cred OR email = :cred) AND is_active = TRUE";
+            
+    $stmt = $this->db->prepare($sql);
+    $stmt->bindValue(':cred', $credential, PDO::PARAM_STR); 
+    $stmt->execute();
+    
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+    
+    /**
+     * HANYA UNTUK DEBUG/SETUP: Menyimpan user baru dengan password hash.
+     * Metode ini harus dijalankan sekali untuk membuat user admin pertama.
+     */
+    public function createInitialAdmin($username, $email, $raw_password, $role = 'admin') {
+        $hash = password_hash($raw_password, PASSWORD_DEFAULT);
         
-        $this->db->query($query);
-        $this->db->bind('name', $data['name']);
-        $this->db->bind('email', $data['email']);
-        $this->db->bind('password', $data['password']); 
-        $this->db->bind('role', $data['role']); 
-
-        return $this->db->execute();
-    }
-
-    public function update($data) {
-        if (!empty($data['password'])) {
-            $query = "UPDATE users SET name=:name, email=:email, role=:role, password=:pass WHERE id=:id";
-        } else {
-            $query = "UPDATE users SET name=:name, email=:email, role=:role WHERE id=:id";
-        }
-
-        $this->db->query($query);
-        $this->db->bind('name', $data['name']);
-        $this->db->bind('email', $data['email']);
-        $this->db->bind('role', $data['role']);
-        $this->db->bind('id', $data['id']);
-
-        if (!empty($data['password'])) {
-            $this->db->bind('pass', $data['password']);
-        }
-
-        return $this->db->execute();
-    }
-
-    public function updatePassword($id, $hash) {
-        $this->db->query("UPDATE " . $this->table . " SET password = :pass WHERE id = :id");
-        $this->db->bind('pass', $hash);
-        $this->db->bind('id', $id);
-        return $this->db->execute();
-    }
-
-    public function delete($id) {
-        $this->db->query("DELETE FROM " . $this->table . " WHERE id = :id");
-        $this->db->bind('id', $id);
-        return $this->db->execute();
-    }
-
-    public function saveResetToken($email, $token) {
-        $this->db->query("DELETE FROM password_resets WHERE email = :email");
-        $this->db->bind('email', $email);
-        $this->db->execute();
-
-        $query = "INSERT INTO password_resets (email, token, created_at) VALUES (:email, :token, NOW())";
-        $this->db->query($query);
-        $this->db->bind('email', $email);
-        $this->db->bind('token', $token);
+        $sql = "INSERT INTO {$this->table} (username, email, password, name, role, is_active)
+                VALUES (:user, :email, :hash, :name, :role, TRUE)";
         
-        return $this->db->execute();
-    }
-
-    public function checkResetToken($email, $token) {
-        $this->db->query("SELECT * FROM password_resets WHERE email = :email AND token = :token");
-        $this->db->bind('email', $email);
-        $this->db->bind('token', $token);
-        return $this->db->single();
-    }
-
-    public function updatePasswordByEmail($email, $hash) {
-        $this->db->query("UPDATE users SET password = :pass WHERE email = :email");
-        $this->db->bind('pass', $hash);
-        $this->db->bind('email', $email);
-        return $this->db->execute();
-    }
-
-    public function deleteResetToken($email) {
-        $this->db->query("DELETE FROM password_resets WHERE email = :email");
-        $this->db->bind('email', $email);
-        return $this->db->execute();
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':user', $username);
+        $stmt->bindValue(':email', $email);
+        $stmt->bindValue(':hash', $hash);
+        $stmt->bindValue(':name', 'Atmint');
+        $stmt->bindValue(':role', $role);
+        
+        return $stmt->execute();
     }
 }
