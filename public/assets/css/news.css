@@ -310,3 +310,86 @@ body {
 }
 
 /* ... (Kode CSS pagination lainnya tetap sama) ... */
+
+/* CONTAINER Ikon Aksi */
+.inlet-action-icons {
+  /* Menggunakan Flexbox untuk perataan dan jarak yang rapi */
+  display: flex;
+  gap: 8px; /* Jarak antar tombol */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Base style untuk semua tombol ikon */
+.inlet-action-icons a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px; /* Lebar tombol ikon */
+  height: 30px; /* Tinggi tombol ikon */
+  border-radius: 5px; /* Sedikit sudut membulat */
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.inlet-action-icons a:hover {
+  transform: translateY(-1px); /* Efek angkat saat di-hover */
+}
+
+.inlet-action-icons span.material-icons-outlined {
+  font-size: 18px; /* Ukuran ikon */
+}
+
+/* 1. Tombol Detail (Visibility) - Warna Biru/Primer */
+.inlet-action-icons a[title="Detail"] {
+  background-color: #3b82f6; /* Tailwind Blue 500 */
+  color: #ffffff;
+}
+.inlet-action-icons a[title="Detail"]:hover {
+  background-color: #2563eb; /* Tailwind Blue 600 */
+}
+
+/* 2. Tombol Update (Edit) - Warna Hijau/Sekunder */
+.inlet-action-icons a[title="Update"] {
+  background-color: #10b981; /* Tailwind Emerald 500 */
+  color: #ffffff;
+}
+.inlet-action-icons a[title="Update"]:hover {
+  background-color: #059669; /* Tailwind Emerald 600 */
+}
+
+/* 3. Tombol Delete - Warna Merah/Peringatan */
+.inlet-action-icons a[title="Delete"] {
+  background-color: #ef4444; /* Tailwind Red 500 */
+  color: #ffffff;
+}
+.inlet-action-icons a[title="Delete"]:hover {
+  background-color: #dc2626; /* Tailwind Red 600 */
+}
+
+/* 3. Tombol Delete - Warna Merah/Peringatan */
+.inlet-action-icons a[title="Delete"] {
+  background-color: #ef4444; /* Warna Background Merah */
+  /* Menghapus 'color: #ffffff;' di sini karena tidak selalu efektif pada icon */
+}
+
+/* 🎯 KOREKSI: TARGETKAN SPAN DI DALAM TOMBOL DELETE */
+.inlet-action-icons a[title="Delete"] span.material-icons-outlined {
+  color: #ffffff; /* Paksa warna icon menjadi putih */
+}
+
+/* Pastikan rule untuk warna hover yang lain tidak menimpa ini */
+.inlet-action-icons a[title="Delete"]:hover {
+  background-color: #dc2626;
+}
+
+.inlet-data-table td[data-label="Aksi"] {
+  text-align: center; /* <-- Ini yang membuat konten 'center' */
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+/* CSS untuk memusatkan teks header kolom Aksi */
+.inlet-data-table th.inlet-col-action {
+  text-align: center;
+}

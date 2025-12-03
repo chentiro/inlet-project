@@ -1,45 +1,22 @@
 <?php
-// --- SIMULASI DATA DUMMY DARI MODEL/DATABASE ---
-$data_berita = [
-    ['id' => 1, 'title' => 'Riset Terbaru: AI dan Pembelajaran Jarak Jauh', 'slug' => 'riset-terbaru-ai-dan-pembelajaran-jarak-jauh', 'published' => 1, 'published_at' => '2025-12-03'],
-    ['id' => 2, 'title' => 'Workshop Database Postgre: Jadwal dan Pendaftaran', 'slug' => 'workshop-database-postgre', 'published' => 0, 'published_at' => '2025-11-28'],
-    ['id' => 3, 'title' => 'Lowongan Asisten Laboratorium INLET Tahun 2026', 'slug' => 'lowongan-asisten-lab-2026', 'published' => 1, 'published_at' => '2025-11-20'],
-    ['id' => 4, 'title' => 'Implementasi Machine Learning untuk Prediksi Kebutuhan Lab', 'slug' => 'ml-prediksi-lab', 'published' => 1, 'published_at' => '2025-11-15'],
-    ['id' => 5, 'title' => 'Laporan Kegiatan Studi Banding ke Jakarta', 'slug' => 'laporan-studi-banding-jakarta', 'published' => 0, 'published_at' => '2025-11-10'],
-    ['id' => 6, 'title' => 'Pembaruan Fasilitas Jaringan Server Lab', 'slug' => 'pembaruan-fasilitas-jaringan', 'published' => 1, 'published_at' => '2025-11-05'],
-    ['id' => 6, 'title' => 'Pembaruan Fasilitas Jaringan Server Lab', 'slug' => 'pembaruan-fasilitas-jaringan', 'published' => 1, 'published_at' => '2025-11-05'],
-    ['id' => 6, 'title' => 'Pembaruan Fasilitas Jaringan Server Lab', 'slug' => 'pembaruan-fasilitas-jaringan', 'published' => 1, 'published_at' => '2025-11-05'],
-    ['id' => 6, 'title' => 'Pembaruan Fasilitas Jaringan Server Lab', 'slug' => 'pembaruan-fasilitas-jaringan', 'published' => 1, 'published_at' => '2025-11-05'],
-    ['id' => 6, 'title' => 'Pembaruan Fasilitas Jaringan Server Lab', 'slug' => 'pembaruan-fasilitas-jaringan', 'published' => 1, 'published_at' => '2025-11-05'],
-    ['id' => 6, 'title' => 'Pembaruan Fasilitas Jaringan Server Lab', 'slug' => 'pembaruan-fasilitas-jaringan', 'published' => 1, 'published_at' => '2025-11-05'],
-    ['id' => 6, 'title' => 'Pembaruan Fasilitas Jaringan Server Lab', 'slug' => 'pembaruan-fasilitas-jaringan', 'published' => 1, 'published_at' => '2025-11-05'],
-    ['id' => 6, 'title' => 'Pembaruan Fasilitas Jaringan Server Lab', 'slug' => 'pembaruan-fasilitas-jaringan', 'published' => 1, 'published_at' => '2025-11-05'],
-    ['id' => 6, 'title' => 'Pembaruan Fasilitas Jaringan Server Lab', 'slug' => 'pembaruan-fasilitas-jaringan', 'published' => 1, 'published_at' => '2025-11-05'],
-    ['id' => 6, 'title' => 'Pembaruan Fasilitas Jaringan Server Lab', 'slug' => 'pembaruan-fasilitas-jaringan', 'published' => 1, 'published_at' => '2025-11-05'],
-    ['id' => 6, 'title' => 'Pembaruan Fasilitas Jaringan Server Lab', 'slug' => 'pembaruan-fasilitas-jaringan', 'published' => 1, 'published_at' => '2025-11-05'],
-    ['id' => 6, 'title' => 'Pembaruan Fasilitas Jaringan Server Lab', 'slug' => 'pembaruan-fasilitas-jaringan', 'published' => 1, 'published_at' => '2025-11-05'],
-    ['id' => 6, 'title' => 'Pembaruan Fasilitas Jaringan Server Lab', 'slug' => 'pembaruan-fasilitas-jaringan', 'published' => 1, 'published_at' => '2025-11-05'],
-    ['id' => 6, 'title' => 'Pembaruan Fasilitas Jaringan Server Lab', 'slug' => 'pembaruan-fasilitas-jaringan', 'published' => 1, 'published_at' => '2025-11-05'],
-    ['id' => 6, 'title' => 'Pembaruan Fasilitas Jaringan Server Lab', 'slug' => 'pembaruan-fasilitas-jaringan', 'published' => 1, 'published_at' => '2025-11-05'],
-];
-// Asumsi: BASE_URL sudah didefinisikan
-$data_berita = $data_berita ?? []; 
+// Catatan: Semua variabel di bawah ($news_list, $total_pages, $current_page, dll.)
+// diasumsikan sudah tersedia di scope ini karena di-pass atau di-extract dari Controller.
 
-// SIMULASI LOGIKA PAGINATION DARI CONTROLLER
-$current_page = $_GET['page'] ?? 1; // Ambil dari URL atau default 1
-$items_per_page = 5;
-$total_items = count($data_berita);
-$total_pages = ceil($total_items / $items_per_page);
-
-// Memotong data dummy sesuai halaman
+// Hitung indeks awal untuk penomoran (Diasumsikan items_per_page juga di-pass dari Controller)
+$items_per_page = 5; // Gunakan nilai yang sama dengan di Controller
 $start_index = ($current_page - 1) * $items_per_page;
-$display_data = array_slice($data_berita, $start_index, $items_per_page);
+
+$no = $start_index + 1;
+$news_list = $news_list ?? []; // Pastikan variabel ada, meskipun kosong
+$total_items = $total_items ?? 0;
+$total_pages = $total_pages ?? 1;
+
 ?>
 
 <div class="inlet-admin-card">
     
     <div class="inlet-card-header">
-        <h2 class="inlet-title">Kelola Berita & Artikel</h2>
+        <h2 class="inlet-title">Berita & Artikel</h2>
         
         <a href="<?php echo BASE_URL; ?>admin/news/create" class="inlet-btn inlet-btn-primary">
             <span class="material-icons-outlined">add</span>
@@ -55,19 +32,21 @@ $display_data = array_slice($data_berita, $start_index, $items_per_page);
                     <th style="width: 35%;">Judul Konten</th>
                     <th style="width: 15%;">Status</th>
                     <th style="width: 15%;">Tanggal Publikasi</th>
-                    <th style="width: 20%;">Aksi</th>
+                    <th style="width: 20%;" class="inlet-col-action">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 <?php 
-                $no = $start_index + 1; // Mulai nomor dari index yang benar
-                if (!empty($display_data)): 
-                    foreach ($display_data as $row):
-                        // Logika untuk status
+                if (!empty($news_list)): 
+                    foreach ($news_list as $row):
+                        // Variabel dari Database (published: 1 atau 0)
                         $is_published = $row['published'] ?? 0;
                         $status_text = ($is_published == 1) ? 'Publish' : 'Draft';
                         $status_class = ($is_published == 1) ? 'is-publish' : 'is-draft';
-                        $tanggal_format = date('d M Y', strtotime($row['published_at'] ?? 'now'));
+                        
+                        // Perhatikan: Kita menggunakan 'created_at' dari Model, tapi View Anda menggunakan 'published_at'
+                        // Saya akan menggunakan 'published_at' sesuai View Anda. Pastikan nama kolom di DB konsisten.
+                        $tanggal_format = date('d M Y', strtotime($row['published_at'] ?? $row['created_at'] ?? 'now'));
                 ?>
                 <tr>
                     <td data-label="No."><?php echo $no++; ?>.</td> 
@@ -83,16 +62,17 @@ $display_data = array_slice($data_berita, $start_index, $items_per_page);
                     <td data-label="Tanggal Publikasi"><?php echo $tanggal_format; ?></td>
                     
                     <td data-label="Aksi" class="inlet-action-icons">
-                        <a href="<?php echo BASE_URL; ?>news/<?php echo htmlspecialchars($row['slug'] ?? ''); ?>" title="Detail" target="_blank">
-                            <span class="material-icons-outlined">visibility</span>
-                        </a>
-                        <a href="<?php echo BASE_URL; ?>admin/news/edit/<?php echo $row['id'] ?? 0; ?>" title="Update">
-                            <span class="material-icons-outlined">edit</span>
-                        </a>
-                        <a href="<?php echo BASE_URL; ?>admin/news/delete/<?php echo $row['id'] ?? 0; ?>" title="Delete" class="inlet-delete-link" onclick="return confirm('Yakin ingin menghapus berita ini?');">
-                            <span class="material-icons-outlined inlet-icon-delete">delete</span>
-                        </a>
-                    </td>
+    <a href="<?php echo BASE_URL; ?>admin/news/detail/<?php echo htmlspecialchars($row['slug'] ?? ''); ?>" title="Detail" target="_blank">
+        <span class="material-icons-outlined">visibility</span>
+    </a>
+    
+    <a href="<?php echo BASE_URL; ?>admin/news/edit/<?php echo $row['id'] ?? 0; ?>" title="Update">
+        <span class="material-icons-outlined">edit</span>
+    </a>
+    <a href="<?php echo BASE_URL; ?>admin/news/delete/<?php echo $row['id'] ?? 0; ?>" title="Delete" class="inlet-delete-link" onclick="return confirm('Yakin ingin menghapus berita ini?');">
+        <span class="material-icons-outlined inlet-icon-delete">delete</span>
+    </a>
+</td>
                 </tr>
                 <?php 
                     endforeach;
@@ -100,7 +80,7 @@ $display_data = array_slice($data_berita, $start_index, $items_per_page);
                 ?>
                 <tr>
                     <td colspan="5" style="text-align: center; color: var(--color-text-grey);">
-                        Belum ada data berita. Silakan klik "Tambah Baru".
+                        Belum ada data berita yang ditemukan.
                     </td>
                 </tr>
                 <?php endif; ?>
@@ -108,6 +88,7 @@ $display_data = array_slice($data_berita, $start_index, $items_per_page);
         </table>
     </div>
 </div>
+
 <div class="pagination-container">
     <ul class="pagination">
     <?php

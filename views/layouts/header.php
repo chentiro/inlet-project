@@ -11,6 +11,7 @@
     
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/main.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/navbar.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/home.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/quick-stat.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/about-us.css">
