@@ -123,14 +123,10 @@
         </div>
 
         <div class="research-card">
-            <img src="<?php echo BASE_URL; ?>assets/images/learning-application/Logo-Polinema.jpg" alt="Learning Application">
-            <h3 class="research-title">Siakad Remake</h3>
-            <p class="research-meta">
-                <i class="material-icons-outlined">person</i> Dr. Purnomo, S.T.
-                <span class="research-year">2024</span>
-            </p>
+            <img src="<?php echo BASE_URL; ?>assets/images/learning-application/codeasy.jpg" alt="Learning Application">
+            <h3 class="research-title">Codeasy</h3>
             <p class="research-abstract">
-                Studi kasus penggunaan CNN dalam menganalisis data time-series iklim di wilayah Malang dan sekitarnya.
+                Codeasy adalah platform belajar Data Science berbasis Machine Learning yang membantu menguasai Python dan Business Intelligence melalui penilaian otomatis dan analisis kognitif berbasis Taksonomi Bloom.
             </p>
             <a href="/riset/detail/3" class="btn-read-more">Baca Detail</a>
         </div>
