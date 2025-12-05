@@ -639,3 +639,78 @@ h5 {
     border: 2px solid #007bff; /* Border biru */
   }
 }
+
+.research-card {
+    width: 300px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transition: .25s ease;
+}
+
+.research-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.10);
+}
+
+/* Thumbnail */
+.research-card img {
+    width: 100% !important;
+    object-fit: cover !important;
+    border-radius: 10px !important;
+    display: block;
+}
+
+/* Title */
+.research-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+/* Meta info (penulis + tahun) */
+.research-meta {
+    font-size: 13px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.research-meta i {
+    font-size: 16px;
+    color: #555;
+}
+
+.research-year {
+    margin-left: auto;
+    color: #444;
+    font-weight: 600;
+}
+
+/* Abstract */
+.research-abstract {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.45;
+    margin-bottom: 18px;
+}
+
+/* Button */
+.btn-read-more {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0066ff;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.btn-read-more:hover {
+    text-decoration: underline;
+}
+
