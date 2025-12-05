@@ -105,31 +105,26 @@
         <?php // TIGA CARD INI AKAN DI-LOOP OLEH PHP MODEL ?>
         
         <div class="research-card">
-            <h3 class="research-title">Implementasi Jaringan Saraf Tiruan untuk Prediksi Cuaca</h3>
-            <p class="research-meta">
-                <i class="material-icons-outlined">person</i> Dr. Purnomo, S.T.
-                <span class="research-year">2024</span>
-            </p>
+            <img src="<?php echo BASE_URL; ?>assets/images/learning-application/pseudo-learn.png" alt="Learning Application">
+            <h3 class="research-title">PseudoLearn Application</h3>
             <p class="research-abstract">
-                Studi kasus penggunaan CNN dalam menganalisis data time-series iklim di wilayah Malang dan sekitarnya.
+                Media pembelajaran rekonstruksi algoritma berbasis pseudocode dengan pendekatan Element Fill-in-Blank pada pemrograman Java.
             </p>
             <a href="/riset/detail/1" class="btn-read-more">Baca Detail</a>
         </div>
 
         <div class="research-card">
-            <h3 class="research-title">Implementasi Jaringan Saraf Tiruan untuk Prediksi Cuaca</h3>
-            <p class="research-meta">
-                <i class="material-icons-outlined">person</i> Dr. Purnomo, S.T.
-                <span class="research-year">2024</span>
-            </p>
+            <img src="<?php echo BASE_URL; ?>assets/images/learning-application/viat-map.png" alt="Learning Application">
+            <h3 class="research-title">Viat Map Application</h3>
             <p class="research-abstract">
-                Studi kasus penggunaan CNN dalam menganalisis data time-series iklim di wilayah Malang dan sekitarnya.
+                VIAT-map is an application that supports reading comprehension by highlighting the logical structure of a text through the Toulmin Argument Model (claim, ground, and warrant).
             </p>
             <a href="/riset/detail/2" class="btn-read-more">Baca Detail</a>
         </div>
 
         <div class="research-card">
-            <h3 class="research-title">Implementasi Jaringan Saraf Tiruan untuk Prediksi Cuaca</h3>
+            <img src="<?php echo BASE_URL; ?>assets/images/learning-application/Logo-Polinema.jpg" alt="Learning Application">
+            <h3 class="research-title">Siakad Remake</h3>
             <p class="research-meta">
                 <i class="material-icons-outlined">person</i> Dr. Purnomo, S.T.
                 <span class="research-year">2024</span>
