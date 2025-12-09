@@ -42,10 +42,10 @@
             <?php // PHP LOOP akan di sini, menggunakan $anggota_data ?>
             
             <div class="member-card">
-                <img src="<?php echo BASE_URL; ?>assets/images/our-team/farid-angga.jpg" alt="Foto Anggota">
+                <img src="<?php echo BASE_URL; ?>assets/images/our-team/banni-satria.jpg" alt="Foto Anggota">
                 <div class="member-info">
                     
-                    <h3 class="member-name">Farid Angga Pribadi, S.Kom., M.Kom</h3>
+                    <h3 class="member-name">Dr. Eng. Banni Satria Andoko, S.Kom.,M.MSI</h3>
                     <p class="member-role">Dosen / Laboran Utama</p>
                     <p class="member-interest">Riset: Learning Engineering & IoT</p>
                     
@@ -92,10 +92,10 @@
             </div>
 
             <div class="member-card">
-                <img src="<?php echo BASE_URL; ?>assets/images/our-team/farid-angga.jpg" alt="Foto Anggota">
+                <img src="<?php echo BASE_URL; ?>assets/images/our-team/dian-hanifudin.jpeg" alt="Foto Anggota">
                 <div class="member-info">
                     
-                    <h3 class="member-name">Farid Angga Pribadi, S.Kom., M.Kom</h3>
+                    <h3 class="member-name">Dian Hanifudin Subhi, S.Kom.,M.Kom.</h3>
                     <p class="member-role">Dosen / Laboran Utama</p>
                     <p class="member-interest">Riset: Learning Engineering & IoT</p>
                     
